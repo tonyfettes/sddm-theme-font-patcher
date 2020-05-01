@@ -21,7 +21,7 @@ change_name() {
 
 echo 'Please back up theme file first unless you know what you are doing.'
 sleep 1
-THEME_NAME=$(sed -n 's/^Name=\(.*\)/\1/p')
+THEME_NAME=$(sed -n 's/^Name=\(.*\)/\1/p' metadata.desktop)
 echo 'Patching' ${THEME_NAME} '...'
 
 if [[ grep -lri 'font\.family' ]]; then
