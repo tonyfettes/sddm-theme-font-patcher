@@ -14,4 +14,10 @@ $ ./patcher.sh
 
 ## Tested Theme
 
+- [ ] Canta
+- [ ] ChromeOS
+- [ ] Layan
+- [ ] Matcha
+- [ ] McMojave
 - [x] Qogir
+- [ ] Vimix
