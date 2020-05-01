@@ -15,7 +15,7 @@ patch() {
 
 change_name() {
   for file in $(grep -lir ${THEME_NAME}); do
-    sed -i 's/'"${THEME_NAME}"'/'"${THEME_NAME}"'-font/i' ${file}
+    sed -i 's/\('"${THEME_NAME}"'\)/\1-font/g' ${file}
   done
 }
 
