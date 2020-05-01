@@ -11,3 +11,7 @@ Then
 $ chmod +x patcher.sh
 $ ./patcher.sh
 ```
+
+## Tested Theme
+
+[-] Qogir
