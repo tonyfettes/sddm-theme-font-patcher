@@ -14,4 +14,4 @@ $ ./patcher.sh
 
 ## Tested Theme
 
-[-] Qogir
+- [x] Qogir
