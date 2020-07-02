@@ -1,3 +1,4 @@
+#!/bin/bash
 THEME_NAME=
 
 clean() {
@@ -10,7 +11,7 @@ patch() {
   for file in $(grep -lr 'font.pointSize'); do
     sed -i 's/^\([ \t]*\)\(font\.pointSize.*\)/\1\2\n\1font.family: config.fontFamily/g' ${file}
   done
-  echo 'fontFamily=Arial' >> theme.conf
+  echo 'fontFamily=' >> theme.conf
 }
 
 change_name() {
@@ -24,21 +25,21 @@ sleep 1
 THEME_NAME=$(sed -n 's/^Name=\(.*\)/\1/p' metadata.desktop)
 echo 'Patching' ${THEME_NAME} '...'
 
-if [[ grep -lri 'font\.family' ]]; then
+checknames=$(grep -lri 'font\.family')
+
+if [[ $checknames != 'patcher.sh' ]]; then
   echo 'This SDDM Theme already has (partial) changeable font support.'
   echo 'Do you still want to patch it? (y/N)'
   read answer
   case ${answer} in
     y|Y)
       clean
-      patch
-      change_name
       ;;
     n|N|*)
       echo 'Aborting...'
+      exit 100
       ;;
   esac
-else
-  patch
-  change_name
 fi
+patch
+change_name
